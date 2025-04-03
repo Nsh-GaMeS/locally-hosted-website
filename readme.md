@@ -236,3 +236,9 @@ Replace /path/to/cloudflare-ddns-updater.sh with the path to the script. This wi
 
 That's it! You've successfully set up a web server using nginx and SSL, and set up dynamic DNS using Cloudflare. You can now access your server using your domain name from anywhere!
 You can also access your server using HTTPS. If you have any questions or comments, feel free to leave them below. Thanks for reading!
+
+# Conclusion
+When making this guide, I was thinking about how to make it as simple as possible. I hope this guide was helpful and easy to follow. 
+
+I also made my own site following the steps from this guide. 
+You can check it out at <center>[nsh-games-den.me](https://server.nsh-games-den.me)</center> I will be adding more content to the site in the future, so stay tuned!
