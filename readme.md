@@ -204,6 +204,20 @@ You'll be prompted to enter your email address and agree to the terms of service
 Now that we have SSL set up, we can test our website. Go to your domain in your browser.
 You should see the "Hello World!" page that we created earlier. If you see this page, congratulations! You've successfully set up a web server using nginx and SSL.
 
+Since your SSL certificate will expire after a while, we'll need to renew it every so often. You can do this by running the following command in your terminal:
+```bash
+sudo certbot renew
+```
+This will renew your SSL certificate and update the nginx configuration file. But this is long and boring, so we'll set up a cron job to do this for us. You can do this by running the following command in your terminal:
+```bash
+sudo crontab -e
+```
+This will open the crontab file in the nano text editor. Add the following line to the end of the file:
+```bash
+1 1 1 * * certbot renew
+```
+This will run the certbot renew command every month to renew your SSL certificate. You can change the time and date to whatever you want, but for this guide, we'll run it every month.
+
 ### Dynamic DNS
 
 Now that we have our web server set up, we need to set up dynamic DNS. This will allow us to access our server using our domain name even if our public IP address changes. Which it enevitably will. We can do this with many different services, but for this guide, we'll use Cloudflare's dynamic DNS service.
@@ -242,3 +256,12 @@ When making this guide, I was thinking about how to make it as simple as possibl
 
 I also made my own site following the steps from this guide. 
 You can check it out at <center>[nsh-games-den.me](https://server.nsh-games-den.me)</center> I will be adding more content to the site in the future, so stay tuned!
+
+__Note:__ To edit the site content, like the html css and js files, you'll need to SSH into your server and edit the files in the /var/www/domain directory. You can do this by running the following command in your terminal:
+```bash
+ssh username@yourserverip
+```
+Replace username with your username and yourserverip with your server's IP address.
+
+Once you're in your server, you can navigate to the /var/www/domain directory and edit the files using nano or any other text editor of your choice. You can also use SFTP to transfer files to your server. You can do this by using an SFTP client like FileZilla or WinSCP. Just enter your server's IP address, username, and password, and you should be able to access your server's files.
+
